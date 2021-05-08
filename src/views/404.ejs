@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %> 
+</head>
+<body>
+
+    <header class="container mb-3">
+        <%- include('../partials/header',{title:'Home page'}) %> 
+    </header>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-column align-items-center p-5">
+                    <h1 class="pb-3">
+                        Oops!
+                    </h1>
+                    <h2 class="pb-3">
+                        404 Not Found
+                    </h2>
+                    <div class="error-details pb-3">
+                        Sorry, an error has occured, Requested page not found!
+                    </div>
+                    <div class="error-actions">
+                        <a href="/" class="btn btn-primary btn-lg">
+                            <span class="glyphicon glyphicon-home"></span>
+                            Take Me Home 
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+    </footer>
+    <%- include('../partials/scripts') %> 
+</body>
+</html>
