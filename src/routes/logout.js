@@ -3,7 +3,7 @@ const authTokens = require('../storedTokens');
 
 router.get("/", (req, res) => {
     authTokens[req.cookies['AuthToken']] = "";
-    res.redirect('/login');
+    res.redirect('/');
 });
 
 module.exports = router;

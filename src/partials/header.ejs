@@ -31,7 +31,9 @@
                     </form>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="/logout">Sign out</a>
+                    <a class="nav-link active text-light" aria-current="page" href="<%= user ? "/logout" : "/login"%>">
+                        <%= user ? "Sign out" : "Login" %> 
+                    </a>
                 </li>
             </ul>
         </div>
