@@ -6,25 +6,23 @@ router.get("/", (req, res) => {
 
     const user = req.user ? true : false
 
-    axios.get('https://yts.pm/api/v2/list_movies.json')
-    .then((response) => {
-        console.log(response)
-        response.data.data.movies
-    })
-    .then((movies) => {
+    axios.get('http://api.tvmaze.com/shows')
+    .then((response) => response.data)
+    .then((tvshows) => {
         
-        let moviesList = []
+        let tvshowsList = []
 
-        for(movie of movies) {
+        //Limit 20 tvshows
+        for(let i = 0; i < 20; i++) {
             let movieFormated = {
-                movieID: movie.id,
-                title: movie.title,
-                img: movie.background_image_original,
-                totalScore: null,
+                movieID: tvshows[i].id,
+                title: tvshows[i].name,
+                img: tvshows[i].image.medium,
+                totalScore: 0,
                 totalVotes: 0
             }
 
-            moviesList.push(movieFormated);
+            tvshowsList.push(movieFormated);
 
         }
 
@@ -36,22 +34,19 @@ router.get("/", (req, res) => {
 
             for(let rI = 0; rI < ratingList.length; rI++) {
 
-                for(let mI = 0; mI < moviesList.length; mI++) {
+                for(let mI = 0; mI < tvshowsList.length; mI++) {
 
-                    if(ratingList[rI].movieID == moviesList[mI].movieID) {
-                        moviesList[mI].totalScore = moviesList[mI].totalScore !== null ?
-                            moviesList[mI].totalScore + ratingList[rI].rating
-                            :
-                            ratingList[rI].rating;
+                    if(ratingList[rI].movieID == tvshowsList[mI].movieID) {
+                        tvshowsList[mI].totalScore = tvshowsList[mI].totalScore + ratingList[rI].rating;
 
-                        moviesList[mI].totalVotes = moviesList[mI].totalVotes + 1;
+                        tvshowsList[mI].totalVotes = tvshowsList[mI].totalVotes + 1;
                     }
     
                 }
 
             }
             
-            res.render('home', {toast: false, movies: moviesList, user: user});
+            res.render('home', {toast: false, tvshows: tvshowsList, user: user});
             
 
         })
