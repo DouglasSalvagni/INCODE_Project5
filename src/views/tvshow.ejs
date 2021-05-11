@@ -10,16 +10,15 @@
     </header>
 
     <main class="container pt-5">
-        <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="">
 
-            <% tvshows.map((tvshow)=> { %> 
+            <% if(tvshow) { %> 
 
-                <div class="col">
                   <div class="card">
-                    <img src="<%= tvshow.img %>" class="card-img-top" alt="...">
+                    <img src="<%= tvshow.img %>" class="card-img-top" alt="..." style="height: 500px; object-fit: cover;">
                     <div class="card-body">
                       <h5 class="card-title">
-                          <a href="/tvshow/<%=tvshow.tvshowID%> "><%= tvshow.title%></a>
+                          <a><%= tvshow.title%></a>
                       </h5>
                       <h5 class="card-title text-secondary">
                           Community score: 
@@ -34,12 +33,21 @@
                       <h5 class="card-title text-secondary">
                           Total vote: <%= tvshow.totalVotes%>
                       </h5>
-                      
+
+                      <% if(user) {%> 
+                        <select name="rating" id="">
+                            <option value="0" disabled>Rating</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                      <% } %> 
                     </div>
                   </div>
-                </div>
 
-            <% }) %> 
+            <% } %> 
 
         </div>
     </main>

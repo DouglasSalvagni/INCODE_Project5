@@ -4,7 +4,7 @@ const axios = require('axios').default;
 
 router.get("/", (req, res) => {
 
-    const user = req.user ? true : false
+    const user = req.user ? true : false;
 
     axios.get('http://api.tvmaze.com/shows')
     .then((response) => response.data)
@@ -14,15 +14,15 @@ router.get("/", (req, res) => {
 
         //Limit 20 tvshows
         for(let i = 0; i < 20; i++) {
-            let movieFormated = {
-                movieID: tvshows[i].id,
+            let tvshowFormated = {
+                tvshowID: tvshows[i].id,
                 title: tvshows[i].name,
                 img: tvshows[i].image.medium,
                 totalScore: 0,
                 totalVotes: 0
             }
 
-            tvshowsList.push(movieFormated);
+            tvshowsList.push(tvshowFormated);
 
         }
 
@@ -36,7 +36,7 @@ router.get("/", (req, res) => {
 
                 for(let mI = 0; mI < tvshowsList.length; mI++) {
 
-                    if(ratingList[rI].movieID == tvshowsList[mI].movieID) {
+                    if(ratingList[rI].tvshowID == tvshowsList[mI].tvshowID) {
                         tvshowsList[mI].totalScore = tvshowsList[mI].totalScore + ratingList[rI].rating;
 
                         tvshowsList[mI].totalVotes = tvshowsList[mI].totalVotes + 1;

@@ -7,6 +7,7 @@ const login = require('./routes/login');
 const signup = require('./routes/signup');
 const logout = require('./routes/logout');
 const home = require('./routes/home');
+const tvShow = require('./routes/tvshow');
 const page404 = require('./routes/404');
 
 //Store tokens
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
     req.user = authTokens[authToken];
 
     next();
+
 });
 
 //Router
@@ -37,6 +39,7 @@ app.use('/login', login);
 app.use('/signup', signup);
 app.use('/logout', logout);
 app.use('/', home);
+app.use('/tvshow', tvShow);
 app.use('*', page404);
 
 

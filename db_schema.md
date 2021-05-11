@@ -13,7 +13,7 @@ CREATE TABLE `users` (
 CREATE TABLE `rating` (
   `ratingID` int NOT NULL AUTO_INCREMENT,
   `userID` int NOT NULL,
-  `movieID` int NOT NULL,
+  `tvshowID` int NOT NULL,
   `rating` int NOT NULL,
   PRIMARY KEY (`ratingID`),
   UNIQUE KEY `ratingID_UNIQUE` (`ratingID`),

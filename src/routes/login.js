@@ -9,6 +9,10 @@ router.get("/", (req, res) => {
     res.render('login',{message:"", toast: false, email: ""});
 });
 
+router.get("/:userid", (req, res) => {
+    res.render('login',{message:"", toast: false, email: ""});
+});
+
 router.post("/", (req, res) => {
 
     const user = req.user ? true : false

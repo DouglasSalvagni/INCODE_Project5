@@ -1,1 +1,1 @@
-module.exports.storedTokens = {};
+module.exports.storedTokens = {}
