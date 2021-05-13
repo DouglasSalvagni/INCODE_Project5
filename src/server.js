@@ -8,6 +8,7 @@ const signup = require('./routes/signup');
 const logout = require('./routes/logout');
 const home = require('./routes/home');
 const tvShow = require('./routes/tvshow');
+const search = require('./routes/search');
 const page404 = require('./routes/404');
 
 //Store tokens
@@ -35,6 +36,7 @@ app.use((req, res, next) => {
 });
 
 //Router
+app.use('/search', search)
 app.use('/login', login);
 app.use('/signup', signup);
 app.use('/logout', logout);
