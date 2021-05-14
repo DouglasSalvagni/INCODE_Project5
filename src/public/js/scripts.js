@@ -18,11 +18,7 @@ if(toast) {
     toasty()
 }
 
-function deleteSchedule(id){
 
-    fetch('http://localhost:3000/userSchedules/delete/' + id, {
-        method: 'DELETE',
-    })
-    .then(res => res.json())
-    .then(res => location.href = "http://localhost:3000/userSchedules");
-}
+
+
+
