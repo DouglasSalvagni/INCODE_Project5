@@ -5,7 +5,7 @@ const missingImage =
   'https://images.unsplash.com/photo-1542204637-e67bc7d41e48?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=denise-jans-WevidclYpdc-unsplash.jpg'
 
 router.get('/', (req, res) => {
-  const user = req.user ? true : false
+  const user = req.user ? req.user : false
 
   let searchQuery = req.query.search
   axios

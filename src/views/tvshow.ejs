@@ -3,10 +3,10 @@
 <head>
     <%- include('../partials/head') %> 
 </head>
-<body>
+<body class="position-relative">
 
     <header class="container mb-3">
-        <%- include('../partials/header',{title:'Home page', user:user}) %> 
+        <%- include('../partials/header',{title:'TV Show Page', user:user}) %> 
     </header>
 
     <main class="container pt-5">
@@ -35,14 +35,25 @@
                       </h5>
 
                       <% if(user) {%> 
-                        <select name="rating" id="">
-                            <option value="0" disabled>Rating</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
+                        <form action="/tvshow/<%= tvshow.tvshowID%>" method="POST">
+
+                            <select class="mb-3 form-select" name="rating">
+                                <option value="0" disabled>Rating</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">
+                                    Give your rating
+                                </button>
+                            </div>
+
+                        </form>
+
                       <% } %> 
                     </div>
                   </div>
@@ -51,9 +62,22 @@
 
         </div>
     </main>
+
+    <div class="toast-container position-absolute top-0 end-0 p-3">
+        <!-- Then put toasts within -->
+        <div id="message" class="toast bg-danger align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+              <div class="toast-body text-white">
+                <%= message %> 
+             </div>
+              <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
     
     <footer>
     </footer>
+    
     <%- include('../partials/scripts') %> 
 </body>
 </html>

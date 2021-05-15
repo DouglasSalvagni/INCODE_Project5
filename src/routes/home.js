@@ -4,7 +4,7 @@ const axios = require('axios').default;
 
 router.get("/", (req, res) => {
 
-    const user = req.user ? true : false;
+    const user = req.user ? req.user : false;
 
     axios.get('http://api.tvmaze.com/shows')
     .then((response) => response.data)
@@ -49,7 +49,7 @@ router.get("/", (req, res) => {
             res.render('home', {toast: false, tvshows: tvshowsList, user: user});
             
 
-        })
+        });
 
 
 

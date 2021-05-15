@@ -18,6 +18,8 @@ if(toast) {
     toasty()
 }
 
+console.log('message')
+
 
 
 
