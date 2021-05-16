@@ -1,20 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <%- include('../partials/head') %> 
-</head>
+<%- include('../partials/head') %>
 <body>
 
     <header class="container mb-3">
-        <%- include('../partials/header',{title:'Home page'}) %> 
+        <%- include('../partials/header',{title:'Home page', user:user}) %> 
     </header>
 
-    <main class="container">
-        
+    <main class="container pt-5">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+            <% tvshows.map((tvshow)=> { %> 
+
+                <div class="col">
+                  <div class="card">
+                    <img src="<%= tvshow.img %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">
+                          <a href="/tvshow/<%=tvshow.tvshowID%> "><%= tvshow.title%></a>
+                      </h5>
+                      <h5 class="card-title text-secondary">
+                          Community score: 
+                            <%= 
+                            tvshow.totalScore > 0 ?
+                                (tvshow.totalScore / tvshow.totalVotes).toFixed(1)
+                                :
+                                0
+                            
+                            %>
+                      </h5>
+                      <h5 class="card-title text-secondary">
+                          Total vote: <%= tvshow.totalVotes%>
+                      </h5>
+                      
+                    </div>
+                  </div>
+                </div>
+
+            <% }) %> 
+
+        </div>
     </main>
     
     <footer>
     </footer>
     <%- include('../partials/scripts') %> 
 </body>
-</html>
+<%- include('../partials/bottom') %>

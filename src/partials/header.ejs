@@ -13,17 +13,17 @@
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <form class="d-flex">
+                    <form action="/search" method="GET" class="d-flex">
                         <div class="row">
                             <div class="col col-7">
-                                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="search">
                             </div>
-                            <div class="col col-4">
+                            <!-- <div class="col col-4">
                                 <select class="form-select" aria-label="Default select example">
                                     <option value="title">Title</option>
                                     <option value="category">Category</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="col col-1">
                                 <button class="btn btn-outline-success" type="submit">GO!</button>
                             </div>
@@ -31,10 +31,28 @@
                     </form>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="/logout">Sign out</a>
+                    <a class="nav-link active text-light" aria-current="page" href="<%= user ? "/logout" : "/login"%>">
+                        <%= user ? "Sign out" : "Login" %> 
+                    </a>
                 </li>
             </ul>
         </div>
         
     </div>
 </nav>
+<nav class="navbar navbar-light bg-light">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">View Last Updated in:</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/update/day">Day</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/update/week">Week</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/update/month">Month</a>
+        </li>
+      </ul>
+  </nav>
