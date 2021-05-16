@@ -38,7 +38,7 @@ router.get('/:tvShowId', (req,res) => {
 
             }
 
-            res.render('tvshow', {toast: false, message:"", tvshow: tvshowFormated, user: user});
+            res.render('tvshow', {message:"", toast: false, tvshow: tvshowFormated, user: user});
         });
 
     })
@@ -107,12 +107,12 @@ router.post('/:tvshowId',verifyToken, (req, res) => {
 
                     if(!insertRating) return res.render('404', {toast: false});
             
-                    return res.render('tvshow', {toast: false, message:"", tvshow: tvshowFormated, user: user});
+                    return res.render('tvshow', {message:"", toast: false, tvshow: tvshowFormated, user: user});
                 });
 
             } else {
 
-                return res.render('tvshow', {toast: true, message:"You already have given a rating.", tvshow: tvshowFormated, user: user});
+                return res.render('tvshow', {message:"You already have given a rating.", toast: true, tvshow: tvshowFormated, user: user});
 
             }
 

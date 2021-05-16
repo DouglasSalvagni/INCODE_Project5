@@ -1,5 +1,6 @@
 const express = require('express');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
+var path = require('path');
 const app = express();
 
 //Import Routes
@@ -19,21 +20,21 @@ app.set('view engine', 'ejs');
 app.set('views',"./src/views");
 
 //Middlewares
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
-app.use(express.static(__dirname + '/public'));
 app.use(cookieParser(''));
 app.use((req, res, next) => {
     // Get auth token from the cookies
     const authToken = req.cookies['AuthToken'];
-
+    
     // Inject the user to the request
     req.user = authTokens[authToken];
-
+    
     next();
-
+    
 });
 
 //Router
