@@ -49,7 +49,7 @@ router.get('/', (req, res) => {
     })
     .catch(error => {
       console.log(error)
-      res.send('404', { toast: false })
+      res.render('404', { toast: false })
     })
 })
 
