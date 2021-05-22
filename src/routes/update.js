@@ -13,7 +13,6 @@ function showUpdates (req, res, param) {
   const user = req.user ? true : false
   const url = req.url
   let searchQuery = url.replace(/^\/+/g, '')
-  console.log(searchQuery)
   let listLength = 20
   axios
     .get('http://api.tvmaze.com/updates/shows?since=' + searchQuery)
@@ -55,13 +54,14 @@ function showUpdates (req, res, param) {
             }
           }
 
-          res.render('home', { toast: false, tvshows: tvshowsList, user: user })
+          var jasonres = { toast: false, tvshows: tvshowsList, user: user }
+          res.json(jasonres)
         })
       })
     })
     .catch(function (error) {
-      res.send('There was an issue with your request.')
       console.log(error)
+      res.render('404', { toast: false })
     })
 }
 

@@ -13,24 +13,18 @@
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <form action="/search" method="GET" class="d-flex">
+                    <!-- <form class="d-flex searchForm"> -->
                         <div class="row">
                             <div class="col col-7">
-                                <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="search">
+                                <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="search" id="search">
                             </div>
-                            <!-- <div class="col col-4">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option value="title">Title</option>
-                                    <option value="category">Category</option>
-                                </select>
-                            </div> -->
                             <div class="col col-1">
-                                <button class="btn btn-outline-success" type="submit">GO!</button>
+                                <button class="btn btn-outline-success" id="go" type="submit">GO!</button>
                             </div>
                         </div>
-                    </form>
+                    <!-- </form> -->
                 </li>
-                <li class="nav-item">
+                <li class="nav-item status">
                     <a class="nav-link active text-light" aria-current="page" href="<%= user ? "/logout" : "/login"%>">
                         <%= user ? "Sign out" : "Login" %> 
                     </a>
@@ -46,13 +40,13 @@
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">View Last Updated in:</a>
           </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/update/day">Day</a>
+          <a class="nav-link active" id="updateDay" href="/update/day">Day</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/update/week">Week</a>
+          <a class="nav-link" id="updateWeek" href="/update/week">Week</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/update/month">Month</a>
+        <li class="nav-item" >
+          <a class="nav-link" id="updateMonth" href="/update/month">Month</a>
         </li>
       </ul>
   </nav>

@@ -1,12 +1,12 @@
 const router = require('express').Router()
 const connection = require('../../config/dbConnection')
 const axios = require('axios').default
+const util = require('../utils/utils')
 const missingImage =
   'https://images.unsplash.com/photo-1542204637-e67bc7d41e48?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=denise-jans-WevidclYpdc-unsplash.jpg'
 
 router.get('/', (req, res) => {
   const user = req.user ? req.user : false
-
   let searchQuery = req.query.search
   axios
     .get('http://api.tvmaze.com/search/shows?q=' + searchQuery)
@@ -43,13 +43,13 @@ router.get('/', (req, res) => {
             }
           }
         }
-
-        res.render('home', { toast: false, tvshows: tvshowsList, user: user })
+        var jasonres = { toast: false, tvshows: tvshowsList, user: user }
+        res.json(jasonres)
       })
     })
     .catch(error => {
       console.log(error)
-      res.render('404', { toast: false })
+      res.send('404', { toast: false })
     })
 })
 
