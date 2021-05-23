@@ -41,7 +41,7 @@ $(document).ready(function () {
           var $user = $('<li class="nav-item status">')
           var isLoginUser = user ? '/logout' : '/login'
           $user.append(
-            `<a class="nav-link active text-light" aria-current="page" href="<%= user ? "/logout" : "/login"%>">
+            `<a class="nav-link active text-light" aria-current="page" href="<%= ${isLoginUser} ? "/logout" : "/login"%>">
             ${isLoginUser}</a>`
           )
           $('#status').html($user)
