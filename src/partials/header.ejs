@@ -12,18 +12,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <!-- <form class="d-flex searchForm"> -->
-                        <div class="row">
-                            <div class="col col-7">
-                                <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="search" id="search">
-                            </div>
-                            <div class="col col-1">
-                                <button class="btn btn-outline-success" id="go" type="submit">GO!</button>
-                            </div>
-                        </div>
-                    <!-- </form> -->
-                </li>
+            
                 <li class="nav-item status">
                     <a class="nav-link active text-light" aria-current="page" href="<%= user ? "/logout" : "/login"%>">
                         <%= user ? "Sign out" : "Login" %> 
@@ -35,7 +24,7 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-light bg-light">
+<!-- <nav class="navbar navbar-light bg-light">
     <ul class="nav">
         <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">View Last Updated in:</a>
@@ -50,4 +39,15 @@
           <a class="nav-link" id="updateMonth" href="/update/month">Month</a>
         </li>
       </ul>
-  </nav>
+
+      <li class="nav-item">
+            <div class="row">
+                <div class="col col-7">
+                    <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="search" id="search">
+                </div>
+                <div class="col col-1">
+                    <button class="btn btn-outline-success" id="go" type="submit">GO!</button>
+                </div>
+            </div>
+    </li>
+  </nav> -->
